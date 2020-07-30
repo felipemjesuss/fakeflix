@@ -29,3 +29,12 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+.error404 {
+  text-align: center;
+  padding: 50px;
+}
+
+.error404 h3 {
+  text-transform: uppercase;
+}

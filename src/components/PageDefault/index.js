@@ -12,11 +12,11 @@ const Main = styled.main`
     padding-right: 5%;
 `
 
-export default ({ children }) => {
+export default ({ children, className }) => {
     return (
         <>
             <Menu />
-            <Main>
+            <Main className={className}>
                 {children}
             </Main>
             <Footer />
