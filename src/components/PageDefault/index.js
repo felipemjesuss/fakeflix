@@ -1,7 +1,7 @@
-import React from 'react'
-import Menu from '../Menu'
-import Footer from '../Footer'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Menu from '../Menu';
+import Footer from '../Footer';
 
 const Main = styled.main`
     background: var(--black);
@@ -10,16 +10,14 @@ const Main = styled.main`
     padding-top: 50px;
     padding-left: 5%;
     padding-right: 5%;
-`
+`;
 
-export default ({ children, className }) => {
-    return (
-        <>
-            <Menu />
-            <Main className={className}>
-                {children}
-            </Main>
-            <Footer />
-        </>
-    )
-}
+export default ({ children, className }) => (
+  <>
+    <Menu />
+    <Main className={className}>
+      {children}
+    </Main>
+    <Footer />
+  </>
+);
