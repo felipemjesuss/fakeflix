@@ -30,7 +30,10 @@ export default () => {
   }
 
   useEffect(() => {
-    const serverUrl = 'http://localhost:3001/categorias';
+    const serverUrl = window.location.hostname.includes('localhost')
+      ? 'http://localhost:3001/categorias'
+      : 'https://felipemjesuss-fakeflix.herokuapp.com/categorias';
+
     fetch(serverUrl)
       .then(async (response) => {
         const responseJson = await response.json();
