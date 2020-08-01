@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
@@ -28,6 +28,17 @@ export default () => {
     ]);
     setCategoria(valoresIniciais);
   }
+
+  useEffect(() => {
+    const serverUrl = 'http://localhost:3001/categorias';
+    fetch(serverUrl)
+      .then(async (response) => {
+        const responseJson = await response.json();
+        setCategorias([
+          ...responseJson,
+        ]);
+      });
+  }, []);
 
   return (
     <PageDefault>
@@ -63,6 +74,12 @@ export default () => {
           Cadastrar
         </Button>
       </form>
+
+      {categorias.length === 0 && (
+        <div>
+          Carregando...
+        </div>
+      )}
 
       <ul>
         {categorias.map((item) => (
