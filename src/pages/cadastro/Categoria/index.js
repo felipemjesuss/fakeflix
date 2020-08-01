@@ -38,17 +38,17 @@ export default () => {
 
       <form onSubmit={handleSubmit}>
         <FormField
-          label="Nome"
-          type="text"
-          name="nome"
-          value={categoria.nome}
-          onChange={handleChange}
-        />
-        <FormField
           label="Cor"
           type="color"
           name="cor"
           value={categoria.cor}
+          onChange={handleChange}
+        />
+        <FormField
+          label="Nome"
+          type="text"
+          name="nome"
+          value={categoria.nome}
           onChange={handleChange}
         />
         <FormField
@@ -65,9 +65,9 @@ export default () => {
       </form>
 
       <ul>
-        {categorias.map((categoria, i) => (
-          <li key={`${categoria}${i}`}>
-            {categoria.nome}
+        {categorias.map((item) => (
+          <li key={`${item.nome}`}>
+            {item.nome}
           </li>
         ))}
       </ul>
