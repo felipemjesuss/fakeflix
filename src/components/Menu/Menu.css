@@ -65,14 +65,15 @@ body {
 }
 
 @media (max-width: 800px) {
-    a.ButtonLink {
+    div.DivButtons {
         position: fixed;
-        left: 0;
-        right: 0;
+        width: 100%;
         bottom: 0;
-        background: var(--primary);
-        border-radius: 0;
-        border: 0;
+        background: var(--black);
         text-align: center;
+    }
+    a.ButtonLink {
+        background: var(--primary);
+        border: 0;
     }
 }

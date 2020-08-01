@@ -40,6 +40,12 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "titulo": "Investimentos",
+      "cor": "#11a235",
+      "descricao": "Os melhores vídeos para sobre investimentos",
+      "id": 6
     }
   ],
   "videos": [
@@ -192,6 +198,24 @@
       "url": "https://www.youtube.com/watch?v=rJ8-m-6b8GQ",
       "categoriaId": 2,
       "id": 25
+    },
+    {
+      "titulo": "5 Caminhos POSSÍVEIS pra quem PERDEU O EMPREGO na pandemia! (Não é receita mágica!)",
+      "url": "https://www.youtube.com/watch?v=ucGORMF-Aro",
+      "categoriaId": 6,
+      "id": 26
+    },
+    {
+      "titulo": "DIVIDENDOS DE AÇÕES: AS 5 MELHORES EMPRESAS PARA TER MAIS DINHEIRO NO BOLSO!",
+      "url": "https://www.youtube.com/watch?v=dUouxFQZ1Yc",
+      "categoriaId": 6,
+      "id": 27
+    },
+    {
+      "titulo": "FUNDOS IMOBILIÁRIOS: Uma excelente opção para VIVER DE RENDA!",
+      "url": "https://www.youtube.com/watch?v=6FIDL196-uc",
+      "categoriaId": 6,
+      "id": 28
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
@@ -40,13 +40,12 @@ export default () => {
       .then(() => {
         // eslint-disable-next-line no-alert
         alert('Cadastro realizado com sucesso.');
+        history.push('/');
       })
       .catch((error) => {
         // eslint-disable-next-line no-alert
         alert(error.message);
       });
-
-    history.push('/');
   }
 
   return (
@@ -82,9 +81,6 @@ export default () => {
         </Button>
       </form>
 
-      <Link to="/cadastro/categoria">
-        Cadastar Categoria
-      </Link>
     </PageDefault>
   );
 };

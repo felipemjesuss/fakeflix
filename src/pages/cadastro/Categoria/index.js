@@ -1,48 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 export default () => {
-  const valoresIniciais = { titulo: '', cor: '', descricao: '' };
-  const [categorias, setCategorias] = useState([]);
-
-  const { valores, handleChange, clearForm } = useForm(valoresIniciais);
+  const history = useHistory();
+  const { valores, handleChange } = useForm({
+    titulo: '',
+    cor: '',
+    descricao: '',
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    setCategorias([
-      ...categorias,
-      valores,
-    ]);
-
-    clearForm();
-  }
-
-  useEffect(() => {
-    const serverUrl = window.location.hostname.includes('localhost')
-      ? 'http://localhost:3001/categorias'
-      : 'https://felipemjesuss-fakeflix.herokuapp.com/categorias';
-
-    fetch(serverUrl)
-      .then(async (response) => {
-        const responseJson = await response.json();
-        setCategorias([
-          ...responseJson,
-        ]);
+    categoriasRepository.criar(valores)
+      .then(() => {
+        // eslint-disable-next-line no-alert
+        alert('Cadastro realizado com sucesso.');
+        history.push('/');
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-alert
+        alert(error.message);
       });
-  }, []);
+  }
 
   return (
     <PageDefault>
-      <h1>
-        Cadastro de Categoria:
-        {valores.titulo}
-      </h1>
+      <h1>Cadastro de Categoria</h1>
 
       <form onSubmit={handleSubmit}>
+
         <FormField
           label="Cor"
           type="color"
@@ -50,6 +42,7 @@ export default () => {
           value={valores.cor}
           onChange={handleChange}
         />
+
         <FormField
           label="Título"
           type="text"
@@ -57,6 +50,7 @@ export default () => {
           value={valores.titulo}
           onChange={handleChange}
         />
+
         <FormField
           label="Descrição"
           type="textarea"
@@ -65,24 +59,11 @@ export default () => {
           onChange={handleChange}
         />
 
-        <Button>
+        <Button type="submit">
           Cadastrar
         </Button>
       </form>
 
-      {categorias.length === 0 && (
-        <div>
-          Carregando...
-        </div>
-      )}
-
-      <ul>
-        {categorias.map((categoria) => (
-          <li key={`${categoria.titulo}`}>
-            {categoria.titulo}
-          </li>
-        ))}
-      </ul>
     </PageDefault>
   );
 };

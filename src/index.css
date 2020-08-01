@@ -38,3 +38,7 @@ a {
 .error404 h3 {
   text-transform: uppercase;
 }
+
+.mr-5 {
+  margin-right: 5px;
+}
