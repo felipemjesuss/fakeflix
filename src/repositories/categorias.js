@@ -1,19 +1,16 @@
 import config from '../config';
 
-const urlCategorias = `${config.SERVER_URL}/categorias`;
+const url = `${config.SERVER_URL}/categorias`;
 
 function getTodasCategoriasComVideos() {
-  return fetch(`${urlCategorias}?_embed=videos`)
-    .then(async (response) => {
-      if (response.ok) {
-        const responseJson = await response.json();
-        return responseJson;
-      }
+  return config.requestGet(`${url}?_embed=videos`);
+}
 
-      throw new Error('Não foi possível conectar ao servidor.');
-    });
+function getCategorias() {
+  return config.requestGet(url);
 }
 
 export default {
   getTodasCategoriasComVideos,
+  getCategorias,
 };
